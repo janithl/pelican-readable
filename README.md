@@ -9,6 +9,9 @@ pelican-readable is a responsive theme for [Pelican](http://getpelican.com), bas
 
 You can see the [theme in action](http://janithl.github.io).
 
+![desktop screenshot](https://raw.github.com/janithl/pelican-readable/master/screenshot-1600.png)
+![mobile screenshot](https://raw.github.com/janithl/pelican-readable/master/screenshot-360.png)
+
 ## INSTALL
 
 Clone the [repository](https://github.com/janithl/pelican-readable), 
