@@ -80,7 +80,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 {%- for tag, articles in tags|sort %}
-                  <li><a href="{{ SITEURL }}/{{ tag.url }}"><span class="badge">{{ articles|count }}</span> {{ tag }}</a></li>
+                  <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
                 {% endfor %}
               </ul>
             </li>
