@@ -60,14 +60,12 @@
             {% for p in pages %}
             <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
             {% endfor %}
-            {% else %}
-
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-            {% for cat, null in categories %}
-              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-            {% endfor %}
             {% endif %}
 
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, articles in categories|sort %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat.name }}</a></li>
+            {% endfor %}
             {% endif %}
 
             {% for name, link in SOCIAL %}
@@ -76,14 +74,17 @@
 
             <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 
+
+            {% if DISPLAY_TAGS_ON_MENU %}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                {%- for tag, articles in tags|sort %}
-                  <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+                {% for tag, articles in tags|sort %}
+                  <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></li>
                 {% endfor %}
               </ul>
             </li>
+            {% endif %}
 
             {% if FEED_ALL_ATOM %}
             <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom</a></li>
