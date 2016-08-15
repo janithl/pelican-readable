@@ -5,7 +5,7 @@
 <article>
   <div class="article_text">
     <ul>
-      {%- for tag, articles in tags|sort %}
+      {% for tag, articles in tags|sort %}
           <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
       {% endfor %}
     </ul>
