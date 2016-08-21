@@ -13,10 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css">
 
-    <title>
-      {{ SITENAME }}
-      {% block title %}{% endblock %}
-    </title>
+    <title>{{ SITENAME }} {% block title %}{% endblock %}</title>
 
     {% include "modules/analytics.html" %}
 
@@ -40,60 +37,60 @@
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ SITEURL }}/">{{ SITENAME }}</a>
-        </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ SITEURL }}/">{{ SITENAME }}</a>
+            </div>
 
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-            {% endfor %}
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
 
-            {% if DISPLAY_PAGES_ON_MENU %}
-            {% for p in pages %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-            {% endfor %}
-            {% endif %}
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in pages %}
+                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                    {% endfor %}
+                    {% endif %}
 
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-            {% for cat, articles in categories|sort %}
-            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat.name }}</a></li>
-            {% endfor %}
-            {% endif %}
+                    {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {% for cat, articles in categories|sort %}
+                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat.name }}</a></li>
+                    {% endfor %}
+                    {% endif %}
 
-            {% for name, link in SOCIAL %}
-            <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
-            {% endfor %}
+                    {% for name, link in SOCIAL %}
+                    <li><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+                    {% endfor %}
 
-            <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                    <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
 
 
-            {% if DISPLAY_TAGS_ON_MENU %}
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                {% for tag, articles in tags|sort %}
-                  <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></li>
-                {% endfor %}
-              </ul>
-            </li>
-            {% endif %}
+                    {% if DISPLAY_TAGS_ON_MENU %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tags <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        {% for tag, articles in tags|sort %}
+                          <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                    {% endif %}
 
-            {% if FEED_ALL_ATOM %}
-            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom</a></li>
-            {% endif %}
-            {% if FEED_ALL_RSS %}
-            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">RSS</a></li>
-            {% endif %}
-          </ul>
-        </div>
+                    {% if FEED_ALL_ATOM %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">Atom</a></li>
+                    {% endif %}
+                    {% if FEED_ALL_RSS %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">RSS</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </nav>
     <div class="container">
@@ -105,12 +102,12 @@
     </div>
 
     <div id="ending_message">
-      <p>&copy; {{ AUTHOR }}. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>.</p>
+        <hr>
+        <p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a>.</p>
     </div>
-  </main>
-  {% include "modules/idl.html" %}
+    {% include "modules/idl.html" %}
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>
