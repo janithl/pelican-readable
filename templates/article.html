@@ -10,6 +10,14 @@
   <div class="article_title">
     <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
   </div>
+{% if article.translations %}
+  <ul class="nav nav-pills">
+    <li role="presentation" class="disabled"><a href="#">Translations:</a></li>
+{% for translation in article.translations %}
+    <li role="presentation"><a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a></li>
+{% endfor %}
+  </ul>
+{% endif %}
   <div class="article_text">
     {{ article.content }}
   </div>
