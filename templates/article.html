@@ -9,6 +9,9 @@
 <article>
   <div class="article_title">
     <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+    {% if article.subtitle %}
+    <p class="lead">{{ article.subtitle }}</p><hr>
+    {% endif %}
   </div>
 {% if article.translations %}
   <ul class="nav nav-pills">
