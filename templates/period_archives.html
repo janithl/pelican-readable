@@ -4,11 +4,14 @@
 
 {% for article in dates %}
 <article>
+  <div class="timestamps"><span class="glyphicon glyphicon-calendar"></span> {{ article.locale_date }}</div>
   <div class="article_title">
     <a href="{{ SITEURL }}/{{ article.url }}">
         <h3>
             {{ article.title }} <br>
-            <small><span class="glyphicon glyphicon-calendar"></span> {{ article.locale_date }}</small>
+            {% if article.subtitle %}
+            <small>{{ article.subtitle }}</small><br>
+            {% endif %}
         </h3>
     </a>
   </div>

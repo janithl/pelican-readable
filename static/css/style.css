@@ -12,6 +12,22 @@ a {
 a:hover {
   text-decoration: none;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.timestamps {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, "Abhaya Libre",
+    sans-serif;
+}
 hr {
   color: #eeeeee;
   background-color: #eeeeee;
@@ -45,6 +61,11 @@ article div.article_title {
   font-size: 24px;
   text-transform: uppercase;
 }
+article div.article_title > .lead,
+article div.article_title small {
+  text-transform: none;
+  color: #b3b3b3;
+}
 article div.article_text {
   font-size: 18px;
   line-height: 1.6em;
@@ -77,6 +98,13 @@ footer {
   padding: 40px;
   color: #999999;
   font-size: 10px;
+}
+.timestamps {
+  float: right;
+  padding: 3px 10px;
+  background: #393939;
+  color: #ffffff;
+  font-size: 0.8em;
 }
 @media screen and (min-width: 1024px) {
   header { border-top: 0; }
