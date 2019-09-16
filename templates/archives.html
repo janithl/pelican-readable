@@ -4,23 +4,21 @@
 {% block content %}
 <article>
   <div class="row-fluid article_text">
-    {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+    {% for year, articles in dates|groupby('date.year')|sort(reverse=True) %}
       <div class="row archive-year">
         <div class="col-xs-3 text-right">
           <h3>{{ year }}</h3>
         </div>
       </div>
-      {% for month, articles in date_year|groupby('date.month') %}
-        {% for article in articles %}
-        <div class="row archive-entry">
-          <div class="col-xs-3 text-right">
-            <strong>{{ article.date.strftime('%b %d') }}</strong>
-          </div>
-          <div class="col-xs-9">
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-          </div>
+      {% for article in articles|sort(attribute='date',reverse=True) %}
+      <div class="row archive-entry">
+        <div class="col-xs-3 text-right">
+          <strong>{{ article.date.strftime('%b %d') }}</strong>
         </div>
-        {% endfor %}
+        <div class="col-xs-9">
+          <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </div>
+      </div>
       {% endfor %}
     {% endfor %}
   </div>
