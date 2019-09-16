@@ -3,7 +3,7 @@
 
 {% block content %}
 <article>
-  <div class="row article_text">
+  <div class="row-fluid article_text">
     {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
       <div class="row archive-year">
         <div class="col-xs-3 text-right">
