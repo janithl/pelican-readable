@@ -7,13 +7,13 @@
     {% for year, articles in dates|groupby('date.year')|sort(reverse=True) %}
       <div class="row archive-year">
         <div class="col-xs-3 text-right">
-          <h3>{{ year }}</h3>
+          <h3><a href="{{ SITEURL }}/{{ year }}">{{ year }}</a></h3>
         </div>
       </div>
       {% for article in articles|sort(attribute='date',reverse=True) %}
       <div class="row archive-entry">
         <div class="col-xs-3 text-right">
-          <strong>{{ article.date.strftime('%b %d') }}</strong>
+          <strong>{{ article.date.strftime('%d %b') }}</strong>
         </div>
         <div class="col-xs-9">
           <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>

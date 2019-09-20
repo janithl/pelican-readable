@@ -2,7 +2,7 @@
 {% block content %}
 {% for article in articles_page.object_list %}
 <article>
-  <div class="timestamps"><span class="glyphicon glyphicon-calendar"></span> {{ article.locale_date }}</div>
+  <div class="timestamps text-muted">{{ article.date.strftime('%d %b %Y') }}</div>
   <div class="article_title">
     <a href="{{ SITEURL }}/{{ article.url }}">
         <h3>

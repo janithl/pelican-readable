@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
+<h2>Archives for {{ period | reverse | join(' ') }}</h2>
 
 {% for article in dates %}
 <article>
-  <div class="timestamps"><span class="glyphicon glyphicon-calendar"></span> {{ article.locale_date }}</div>
+  <div class="timestamps text-muted">{{ article.date.strftime('%d %b %Y') }}</div>
   <div class="article_title">
     <a href="{{ SITEURL }}/{{ article.url }}">
         <h3>
